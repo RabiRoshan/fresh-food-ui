@@ -1,0 +1,20 @@
+{
+  "signIn": "Sign In",
+  "createAccount": "Create Account",
+  "forgotPassword": "Forgot password?",
+  "logout": "Logout",
+  "loginWith": "Login with",
+  "touchId": "Touch ID",
+  "loginWithPassword": "Login with password",
+  "loginWithTouchId": "Login with Touch ID",
+  "loginError": "Login Error",
+  "welcome": "Welcome",
+  "email": "Email",
+  "password": "Password",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "updateDetails": "Update Details",
+  "update": "Update",
+  "updateDataError": "Update Data Error",
+  "back": "Back"
+}
