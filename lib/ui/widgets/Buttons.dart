@@ -27,8 +27,8 @@ class ButtonOne extends StatelessWidget {
         width: double.infinity,
         child: CupertinoButton(
           onPressed: !showLoader ? onPressed : null,
-          disabledColor: green,
-          color: green,
+          disabledColor: appPrimaryColor,
+          color: appPrimaryColor,
           borderRadius: const BorderRadius.all(
             const Radius.circular(
               36,
@@ -50,8 +50,8 @@ class ButtonOne extends StatelessWidget {
             ),
           ),
           onPressed: !showLoader ? onPressed : null,
-          disabledColor: green,
-          color: green,
+          disabledColor: appPrimaryColor,
+          color: appPrimaryColor,
           child: generateButtonChild(context, text, prefixIcon),
         ),
       );

@@ -17,13 +17,13 @@ class BaseScreen extends StatelessWidget {
   final bool secureScreen;
   final Widget bottomNavBar;
 
-  const BaseScreen(
-      {Key key,
-      this.child,
-      this.padding,
-      this.secureScreen = true,
-      this.bottomNavBar})
-      : super(key: key);
+  const BaseScreen({
+    Key key,
+    this.child,
+    this.padding,
+    this.secureScreen = true,
+    this.bottomNavBar,
+  }) : super(key: key);
 
   redirectToSignIn() {
     Get.offAllNamed(SignInRoute);
@@ -36,11 +36,16 @@ class BaseScreen extends StatelessWidget {
         if (secureScreen && state is UnauthenticatedState) redirectToSignIn();
       },
       child: Scaffold(
+          backgroundColor: white,
           body: SingleChildScrollView(
             child: Container(
               padding: padding,
+              constraints: true
+                  ? BoxConstraints(
+                      minHeight: MediaQuery.of(context).size.height,
+                    )
+                  : null,
               width: double.infinity,
-              decoration: BoxDecoration(color: white),
               child: child,
             ),
           ),

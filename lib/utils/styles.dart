@@ -20,8 +20,8 @@ const Map<int, Color> color = {
 };
 
 const MaterialColor appPrimarySwatch = MaterialColor(0XFF7BED8D, color);
+const appPrimaryColor = appPrimarySwatch;
 
-const green = const Color(0XFF7BED8D);
 const white = Colors.white;
 const lighterGrey = Color(0XFFF0F4F8);
 const lightGrey = const Color(0XFFDBE2ED);
@@ -42,7 +42,8 @@ const String roboto = "Roboto";
 const TextStyle h1Text = TextStyle(fontSize: 30, color: mediumGreyTwo);
 const TextStyle h2Text = TextStyle(fontSize: 24, color: mediumGreyTwo);
 const TextStyle h3Text = TextStyle(fontSize: 20, color: mediumGreyTwo);
-const TextStyle h2Green = TextStyle(fontSize: 24, color: green);
+const TextStyle h2PrimaryColor =
+    TextStyle(fontSize: 24, color: appPrimaryColor);
 
 const TextStyle bodyWhiteText =
     TextStyle(fontSize: 16, color: white, fontWeight: FontWeight.w500);
@@ -52,8 +53,8 @@ const TextStyle bodyLightText =
     TextStyle(fontSize: 16, color: mediumGreyOne, fontWeight: FontWeight.w500);
 const TextStyle bodySmallLightText =
     TextStyle(fontSize: 14, color: mediumGreyOne, fontWeight: FontWeight.w500);
-const TextStyle bodyGreenText =
-    TextStyle(fontSize: 16, color: green, fontWeight: FontWeight.w500);
+const TextStyle bodyPrimaryColorText = TextStyle(
+    fontSize: 16, color: appPrimaryColor, fontWeight: FontWeight.w500);
 const TextStyle linkText =
     TextStyle(fontSize: 14, color: mediumGreyOne, fontWeight: FontWeight.bold);
 const TextStyle buttonText =

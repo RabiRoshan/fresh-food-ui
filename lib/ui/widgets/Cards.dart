@@ -5,39 +5,64 @@ import '../../utils/styles.dart';
 
 class CardOne extends StatelessWidget {
   final Widget child;
+  final double height;
+  final EdgeInsets padding;
 
-  const CardOne({Key key, this.child}) : super(key: key);
+  const CardOne({Key key, this.child, @required this.height, this.padding})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: white,
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(0),
-          bottom: Radius.circular(36),
-        ),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 5.0,
-            offset: Offset(
-              0.0,
-              0.0,
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: <Widget>[
+        Container(
+          height: height,
+          width: MediaQuery.of(context).size.width / 2,
+          padding: padding,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(0),
+              bottom: Radius.circular(36),
             ),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 20,
+                spreadRadius: 6,
+                offset: Offset(
+                  0.0,
+                  1.0,
+                ),
+              ),
+            ],
           ),
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 20,
-            spreadRadius: -100,
-            offset: Offset(
-              0.0,
-              100.0,
+        ),
+        Container(
+          height: height,
+          width: MediaQuery.of(context).size.width,
+          padding: padding,
+          decoration: BoxDecoration(
+            // color: Colors.transparent,
+            color: white,
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(0),
+              bottom: Radius.circular(36),
             ),
-          )
-        ],
-      ),
-      child: child,
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 20,
+                offset: Offset(
+                  0.0,
+                  1.0,
+                ),
+              ),
+            ],
+          ),
+          child: child,
+        ),
+      ],
     );
   }
 }
@@ -46,6 +71,7 @@ class CardTwo extends StatelessWidget {
   final String imagePath;
   final Color bgColor;
   final String title;
+
   const CardTwo({Key key, this.imagePath, this.bgColor, this.title})
       : super(key: key);
 
@@ -68,25 +94,26 @@ class CardTwo extends StatelessWidget {
             BlendMode.darken,
           ),
         ),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 5.0,
-            offset: Offset(
-              0.0,
-              0.0,
-            ),
-          ),
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 20,
-            spreadRadius: -100,
-            offset: Offset(
-              0.0,
-              100.0,
-            ),
-          )
-        ],
+        // TODO: Apply box shadow
+        // boxShadow: <BoxShadow>[
+        //   BoxShadow(
+        //     color: Colors.black12,
+        //     blurRadius: 5.0,
+        //     offset: Offset(
+        //       0.0,
+        //       0.0,
+        //     ),
+        //   ),
+        //   BoxShadow(
+        //     color: Colors.black12,
+        //     blurRadius: 20,
+        //     spreadRadius: -100,
+        //     offset: Offset(
+        //       0.0,
+        //       100.0,
+        //     ),
+        //   )
+        // ],
       ),
       child: Align(
         alignment: Alignment.bottomCenter,
@@ -116,25 +143,26 @@ class CardThree extends StatelessWidget {
         borderRadius: BorderRadius.all(
           Radius.circular(12),
         ),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 5.0,
-            offset: Offset(
-              0.0,
-              0.0,
-            ),
-          ),
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 20,
-            spreadRadius: -100,
-            offset: Offset(
-              0.0,
-              100.0,
-            ),
-          )
-        ],
+        // TODO: Apply box shadow
+        // boxShadow: <BoxShadow>[
+        //   BoxShadow(
+        //     color: Colors.black12,
+        //     blurRadius: 5.0,
+        //     offset: Offset(
+        //       0.0,
+        //       0.0,
+        //     ),
+        //   ),
+        //   BoxShadow(
+        //     color: Colors.black12,
+        //     blurRadius: 20,
+        //     spreadRadius: -100,
+        //     offset: Offset(
+        //       0.0,
+        //       100.0,
+        //     ),
+        //   )
+        // ],
       ),
       child: Center(
         child: ImageIcon(

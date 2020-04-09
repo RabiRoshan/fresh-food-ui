@@ -86,60 +86,58 @@ class SignInViewMobilePortrait extends StatelessWidget {
       child: Column(
         children: <Widget>[
           CardOne(
-            child: Container(
-              height: generateSize(context, 707, fromHeight: true),
-              padding: EdgeInsets.only(
-                top: generateSize(context, 149, fromHeight: true),
-                bottom: generateSize(context, 30, fromHeight: true),
-                left: generateSize(context, 30),
-                right: generateSize(context, 30),
-              ),
-              child: Column(
-                children: <Widget>[
-                  Expanded(
-                    child: Column(
-                      children: <Widget>[
-                        Text(
-                          S.of(context).signIn,
-                          style: h2Green,
-                        ),
-                        generateSpace(context, 111, fromHeight: true),
-                        TextFieldOne(
-                          hintText: S.of(context).email,
-                          controller: emailController,
-                          prefixIconImage: AssetImage(LocalIcons.icon_mail),
-                        ),
-                        generateSpace(context, 15, fromHeight: true),
-                        TextFieldOne(
-                          hintText: S.of(context).password,
-                          controller: passwordController,
-                          prefixIconImage: AssetImage(LocalIcons.icon_padlock),
-                          obscureText: true,
-                        ),
-                        generateSpace(context, 29, fromHeight: true),
-                        Text(
-                          S.of(context).forgotPassword,
-                          style: bodyLightText,
-                        ),
-                      ],
-                    ),
-                  ),
-                  ButtonOne(
-                    text: S.of(context).signIn.toUpperCase(),
-                    prefixIcon: ImageIcon(
-                      AssetImage(
-                        LocalIcons.icon_arrow_small2x,
+            height: generateSize(context, 707, fromHeight: true),
+            padding: EdgeInsets.only(
+              top: generateSize(context, 149, fromHeight: true),
+              bottom: generateSize(context, 30, fromHeight: true),
+              left: generateSize(context, 30),
+              right: generateSize(context, 30),
+            ),
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        S.of(context).signIn,
+                        style: h2PrimaryColor,
                       ),
-                      size: 14,
-                      color: white,
-                    ),
-                    showLoader: isLoggingIn,
-                    onPressed: () {
-                      onSignInPressed();
-                    },
+                      generateSpace(context, 111, fromHeight: true),
+                      TextFieldOne(
+                        hintText: S.of(context).email,
+                        controller: emailController,
+                        prefixIconImage: AssetImage(LocalIcons.icon_mail),
+                      ),
+                      generateSpace(context, 15, fromHeight: true),
+                      TextFieldOne(
+                        hintText: S.of(context).password,
+                        controller: passwordController,
+                        prefixIconImage: AssetImage(LocalIcons.icon_padlock),
+                        obscureText: true,
+                      ),
+                      generateSpace(context, 29, fromHeight: true),
+                      Text(
+                        S.of(context).forgotPassword,
+                        style: bodyLightText,
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                ButtonOne(
+                  text: S.of(context).signIn.toUpperCase(),
+                  prefixIcon: ImageIcon(
+                    AssetImage(
+                      LocalIcons.icon_arrow_small2x,
+                    ),
+                    size: 14,
+                    color: white,
+                  ),
+                  showLoader: isLoggingIn,
+                  onPressed: () {
+                    onSignInPressed();
+                  },
+                ),
+              ],
             ),
           ),
           generateSpace(context, 42, fromHeight: true),

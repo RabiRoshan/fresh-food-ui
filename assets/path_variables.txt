@@ -3,9 +3,13 @@
 
 /Users/rabiroshan/Projects/fresh_food_mock/assets/images:
 static const String orange3x = path + "orange@3x.png";
+static const String kale = path + "kale.png";
+static const String kale3x = path + "kale@3x.png";
+static const String kale2x = path + "kale@2x.png";
 static const String orange2x = path + "orange@2x.png";
 static const String broccoli3x = path + "broccoli@3x.png";
 static const String broccoli2x = path + "broccoli@2x.png";
+static const String pepper = path + "pepper.png";
 static const String strawberry3x = path + "strawberry@3x.png";
 static const String orange = path + "orange.png";
 static const String banana2x = path + "banana@2x.png";
@@ -16,6 +20,8 @@ static const String banana3x = path + "banana@3x.png";
 static const String strawberry2x = path + "strawberry@2x.png";
 static const String banana = path + "banana.png";
 static const String strawberry = path + "strawberry.png";
+static const String pepper3x = path + "pepper@3x.png";
+static const String pepper2x = path + "pepper@2x.png";
 static const String broccoli = path + "broccoli.png";
 
 /Users/rabiroshan/Projects/fresh_food_mock/assets/icons:

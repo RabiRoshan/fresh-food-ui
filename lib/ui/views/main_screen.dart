@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_food/ui/views/cart_screen.dart';
-import 'package:fresh_food/ui/views/recipes_screen.dart';
-import 'package:fresh_food/ui/views/settings_screen.dart';
 
 import '../responsive/orientation_layout.dart';
 import '../responsive/screent_type_layout.dart';
 import '../widgets/BottomNavBars.dart';
 import 'base_screen.dart';
-import 'search_screen.dart';
+import 'cart_screen.dart';
+import 'recipes_screen.dart';
+import 'settings_screen.dart';
 import 'store_screen.dart';
 
 class MainScreen extends StatefulWidget {

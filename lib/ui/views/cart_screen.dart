@@ -1,12 +1,15 @@
+import 'package:fading_edge_scrollview/fading_edge_scrollview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import '../../constants/app_constants.dart';
 import '../../generated/l10n.dart';
 import '../../utils/styles.dart';
 import '../responsive/orientation_layout.dart';
 import '../responsive/screent_type_layout.dart';
+import '../widgets/Buttons.dart';
 import '../widgets/Cards.dart';
-import 'base_screen.dart';
+import '../widgets/CartItemSlidable.dart';
 
 class CartScreen extends StatefulWidget {
   CartScreen({Key key}) : super(key: key);
@@ -31,91 +34,150 @@ class CartViewMobilePortrait extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        CardOne(
-          child: Container(
-            height: generateSize(context, 507, fromHeight: true),
-            width: double.infinity,
+    return Container(
+      height: generateSize(context, 710, fromHeight: true),
+      child: Column(
+        children: <Widget>[
+          CardOne(
+            height: generateSize(context, 124, fromHeight: true),
             padding: EdgeInsets.only(
               top: generateSize(context, 69, fromHeight: true),
-              left: generateSize(context, 30),
-              right: generateSize(context, 30),
             ),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(
-                        S.of(context).cart,
-                        style: h3Text,
-                        textAlign: TextAlign.center,
+            child: Container(
+              child: Text(
+                S.of(context).cart,
+                style: h3Text,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+          Container(
+            height: generateSize(context, 270),
+            width: generateSize(context, 315),
+            child: FadingEdgeScrollView.fromScrollView(
+              child: ListView.separated(
+                controller: ScrollController(),
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  if (index % 4 == 0)
+                    return CartItemSlidable(
+                      image: Image.asset(
+                        LocalImages.broccoli,
+                        width: generateSize(context, 46),
                       ),
-                    ),
-                    ImageIcon(
-                      AssetImage(LocalIcons.icon_search3x),
-                      size: h3Text.fontSize,
-                      color: h3Text.color,
-                    ),
-                  ],
-                ),
-                generateSpace(context, 5, fromHeight: true),
-                Image.asset(
-                  LocalImages.broccoli3x,
-                  height: generateSize(context, 293, fromHeight: true),
-                  width: generateSize(context, 293, fromHeight: true),
-                ),
-                generateSpace(context, 5, fromHeight: true),
-                Text(
-                  S.of(context).vegetables,
-                  style: h1Text,
-                ),
-                generateSpace(context, 5, fromHeight: true),
-                Text(
-                  S.of(context).browse,
-                  style: bodyLightText,
-                ),
-              ],
+                      title: "Brocolli",
+                      quantity: '2 heads',
+                      price: '\$0.80',
+                    );
+                  else if (index % 3 == 0)
+                    return CartItemSlidable(
+                      image: Image.asset(
+                        LocalImages.strawberry,
+                        width: generateSize(context, 46),
+                      ),
+                      title: "Strawberry",
+                      quantity: '2 punnets',
+                      price: '\$4.00',
+                    );
+                  else if (index % 2 == 0)
+                    return CartItemSlidable(
+                      image: Image.asset(
+                        LocalImages.pepper,
+                        width: generateSize(context, 46),
+                      ),
+                      title: "Red Peppers",
+                      quantity: '5',
+                      price: '\$1.50',
+                    );
+                  else
+                    return CartItemSlidable(
+                      image: Image.asset(
+                        LocalImages.kale,
+                        width: generateSize(context, 46),
+                      ),
+                      title: "Kale",
+                      quantity: '300g',
+                      price: '\$3.00',
+                    );
+                },
+                separatorBuilder: (context, index) =>
+                    generateSpace(context, 15, fromHeight: true),
+              ),
             ),
           ),
-        ),
-        generateSpace(context, 15, fromHeight: true),
-        Container(
-          height: generateSize(context, 183, fromHeight: true),
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: <Widget>[
-              generateSpace(context, 50, horizontal: true, fromHeight: true),
-              CardTwo(
-                imagePath: LocalImages.strawberry3x,
-                bgColor: strawBerryRed,
-                title: S.of(context).berries,
+          generateSpace(context, 50, fromHeight: true),
+          Expanded(
+            child: Padding(
+              padding:
+                  EdgeInsets.symmetric(horizontal: generateSize(context, 30)),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                            "Sub-Total",
+                            style: bodyDarkText,
+                          ),
+                          Text(
+                            "\$9.30",
+                            style: bodyDarkText,
+                          ),
+                        ],
+                      ),
+                      generateSpace(context, 12, fromHeight: true),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                            "Delivery",
+                            style: bodyDarkText,
+                          ),
+                          Text(
+                            "Standard (free)",
+                            style: bodyDarkText,
+                          ),
+                        ],
+                      ),
+                      generateSpace(context, 12, fromHeight: true),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                            "Total",
+                            style: h2Text,
+                          ),
+                          Text(
+                            "\$9.30",
+                            style: h2Text,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  ButtonOne(
+                    text: "CHECKOUT",
+                    prefixIcon: ImageIcon(
+                      AssetImage(
+                        LocalIcons.icon_arrow_small2x,
+                      ),
+                      size: 14,
+                      color: white,
+                    ),
+                    // showLoader: isLoggingIn,
+                    onPressed: () {
+                      // onSignInPressed();
+                    },
+                  )
+                ],
               ),
-              generateSpace(context, 15, horizontal: true, fromHeight: true),
-              CardTwo(
-                imagePath: LocalImages.orange3x,
-                bgColor: fruitOrange,
-                title: S.of(context).citrus,
-              ),
-              generateSpace(context, 15, horizontal: true, fromHeight: true),
-              CardTwo(
-                imagePath: LocalImages.banana3x,
-                bgColor: yellowBanana,
-                title: S.of(context).tropical,
-              ),
-              generateSpace(context, 15, horizontal: true, fromHeight: true),
-              CardThree(
-                iconPath: LocalIcons.icon_search3x,
-                bgColor: mediumGreyTwo,
-                title: S.of(context).more,
-              ),
-              generateSpace(context, 15, horizontal: true, fromHeight: true),
-            ],
-          ),
-        )
-      ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

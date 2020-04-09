@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_food/constants/app_constants.dart';
 
 import '../../utils/styles.dart';
 
@@ -22,7 +21,7 @@ class TextFieldOne extends StatelessWidget {
     return TextField(
       style: bodyDarkText,
       controller: controller,
-      cursorColor: green,
+      cursorColor: appPrimaryColor,
       obscureText: obscureText,
       decoration: InputDecoration(
         hintText: hintText,

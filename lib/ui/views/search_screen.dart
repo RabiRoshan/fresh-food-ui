@@ -34,51 +34,48 @@ class SearchViewMobilePortrait extends StatelessWidget {
     return Column(
       children: <Widget>[
         CardOne(
-          child: Container(
-            height: generateSize(context, 507, fromHeight: true),
-            width: double.infinity,
-            padding: EdgeInsets.only(
-              top: generateSize(context, 69, fromHeight: true),
-              left: generateSize(context, 30),
-              right: generateSize(context, 30),
-            ),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(
-                        S.of(context).search,
-                        style: h3Text,
-                        textAlign: TextAlign.center,
-                      ),
+          height: generateSize(context, 507, fromHeight: true),
+          padding: EdgeInsets.only(
+            top: generateSize(context, 69, fromHeight: true),
+            left: generateSize(context, 30),
+            right: generateSize(context, 30),
+          ),
+          child: Column(
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+                      S.of(context).search,
+                      style: h3Text,
+                      textAlign: TextAlign.center,
                     ),
-                    ImageIcon(
-                      AssetImage(LocalIcons.icon_search3x),
-                      size: h3Text.fontSize,
-                      color: h3Text.color,
-                    ),
-                  ],
-                ),
-                generateSpace(context, 5, fromHeight: true),
-                Image.asset(
-                  LocalImages.broccoli3x,
-                  height: generateSize(context, 293, fromHeight: true),
-                  width: generateSize(context, 293, fromHeight: true),
-                ),
-                generateSpace(context, 5, fromHeight: true),
-                Text(
-                  S.of(context).vegetables,
-                  style: h1Text,
-                ),
-                generateSpace(context, 5, fromHeight: true),
-                Text(
-                  S.of(context).browse,
-                  style: bodyLightText,
-                ),
-              ],
-            ),
+                  ),
+                  ImageIcon(
+                    AssetImage(LocalIcons.icon_search3x),
+                    size: h3Text.fontSize,
+                    color: h3Text.color,
+                  ),
+                ],
+              ),
+              generateSpace(context, 5, fromHeight: true),
+              Image.asset(
+                LocalImages.broccoli3x,
+                height: generateSize(context, 293, fromHeight: true),
+                width: generateSize(context, 293, fromHeight: true),
+              ),
+              generateSpace(context, 5, fromHeight: true),
+              Text(
+                S.of(context).vegetables,
+                style: h1Text,
+              ),
+              generateSpace(context, 5, fromHeight: true),
+              Text(
+                S.of(context).browse,
+                style: bodyLightText,
+              ),
+            ],
           ),
         ),
         generateSpace(context, 15, fromHeight: true),
