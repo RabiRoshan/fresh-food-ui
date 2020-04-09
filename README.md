@@ -4,7 +4,7 @@ Practice app from xd design - [**Fresh Food UI Kit** by Daniel White](https://dr
 
 Using my [**bloc architecture**](https://github.com/RabiRoshan/flutter_startup_kit/tree/bloc_architecture) style.
 
-## Screenshot (current stage)
+## Screenshots (current stage)
 
 <kbd><img src="readme_assets/SignIn.png" /></kbd>
 <kbd><img src="readme_assets/Create_Account.png" /></kbd>
