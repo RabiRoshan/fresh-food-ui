@@ -6,7 +6,7 @@ Using my [**bloc architecture**](https://github.com/RabiRoshan/flutter_startup_k
 
 ## Screenshot (current stage)
 
-![SignIn Screen](readme_assets/SignIn.png)
-![Create Account Screen](readme_assets/Create_Account.png)
-![Store Screen](readme_assets/Store.png)
-![Cart Screen](readme_assets/Cart.png)
+<kbd><img src="readme_assets/SignIn.png" /></kbd>
+<kbd><img src="readme_assets/Create_Account.png" /></kbd>
+<kbd><img src="readme_assets/Store.png" /></kbd>
+<kbd><img src="readme_assets/Cart.png" /></kbd>
