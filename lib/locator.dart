@@ -11,10 +11,5 @@ setupLocator({bool useFakeRepo = false}) {
   getIt.registerSingleton(SharedPreferencesHelper());
   getIt.registerSingleton(SecureStorageHelper());
   getIt.registerSingleton(HttpHelper());
-
-  if (useFakeRepo) {
-    getIt.registerSingleton(Repos.fake());
-  } else {
-    getIt.registerSingleton(Repos.http());
-  }
+  getIt.registerSingleton(useFakeRepo ? Repos.fake() : Repos.http());
 }

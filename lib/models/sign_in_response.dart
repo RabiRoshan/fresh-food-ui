@@ -1,32 +1,32 @@
 // To parse this JSON data, do
 //
-//     final loginResponse = loginResponseFromJson(jsonString);
+//     final signInResponse = signInResponseFromJson(jsonString);
 
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
-LoginResponse loginResponseFromJson(String str) =>
-    LoginResponse.fromMap(json.decode(str));
+SignInResponse signInResponseFromJson(String str) =>
+    SignInResponse.fromMap(json.decode(str));
 
-String loginResponseToJson(LoginResponse data) => json.encode(data.toMap());
+String signInResponseToJson(SignInResponse data) => json.encode(data.toMap());
 
-class LoginResponse extends Equatable {
+class SignInResponse extends Equatable {
   final String token;
 
-  LoginResponse({
+  SignInResponse({
     @required this.token,
   });
 
-  LoginResponse copyWith({
+  SignInResponse copyWith({
     String token,
   }) =>
-      LoginResponse(
+      SignInResponse(
         token: token ?? this.token,
       );
 
-  factory LoginResponse.fromMap(Map<String, dynamic> json) => LoginResponse(
+  factory SignInResponse.fromMap(Map<String, dynamic> json) => SignInResponse(
         token: json["token"],
       );
 

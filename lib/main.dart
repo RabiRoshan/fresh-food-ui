@@ -7,6 +7,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 
 import 'bloc/auth_bloc/auth_bloc.dart';
+import 'constants/app_constants.dart';
 import 'generated/l10n.dart';
 import 'locator.dart';
 import 'router.dart';
@@ -16,7 +17,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Change to true to use fake repo
-  setupLocator(useFakeRepo: true);
+  setupLocator(useFakeRepo: false);
 
   // Lock device orientation here if needed
   SystemChrome.setPreferredOrientations([
@@ -26,7 +27,7 @@ void main() {
       // TODO: Remove device preview on build
       devicePreview.DevicePreview(
         // enabled: !kReleaseMode,
-        // enabled: false,
+        enabled: false,
         builder: (BuildContext context) {
           return App();
         },
@@ -81,8 +82,6 @@ class App extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: appPrimarySwatch,
         ),
-
-        home: RootWidget(),
       ),
     );
   }
@@ -100,14 +99,24 @@ class _RootWidgetState extends State<RootWidget> {
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is AuthenticatedState) {
-          Get.offNamed(HomeRoute);
+          Get.offAllNamed(MainRoute);
         } else if (state is UnauthenticatedState) {
-          Get.offNamed(LoginRoute);
+          Get.offAllNamed(SignInRoute);
         }
       },
       builder: (context, state) {
         // Show loading indicator until AuthBloc is initialized
-        return Scaffold(body: Center(child: CircularProgressIndicator()));
+        return Scaffold(
+            body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image.asset(LocalImages.logo),
+              generateSpace(context, 10),
+              CircularProgressIndicator(),
+            ],
+          ),
+        ));
       },
     );
   }
@@ -117,8 +126,8 @@ class _RootWidgetState extends State<RootWidget> {
     // To show loading indicator for atleast 2 seconds on app startup
     await Future.delayed(Duration(seconds: 2));
 
-    // Try auto login
-    BlocProvider.of<AuthBloc>(context).add(AutoLoginEvent());
+    // Try auto Sign In
+    BlocProvider.of<AuthBloc>(context).add(AutoSignInEvent());
 
     super.didChangeDependencies();
   }

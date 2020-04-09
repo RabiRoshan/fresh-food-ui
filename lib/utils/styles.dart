@@ -30,6 +30,11 @@ const mediumGreyTwo = const Color(0XFF748A9D);
 const darkGrey = const Color(0XFF4E5D6A);
 const darkerGrey = const Color(0XFF404E5A);
 
+const strawBerryRed = const Color(0XFFDD4040);
+const fruitOrange = const Color(0XFFFFA700);
+const yellowBanana = const Color(0XFFFFD958);
+const greenApple = const Color(0XFFD2F475);
+
 // Fonts
 const String roboto = "Roboto";
 
@@ -39,6 +44,8 @@ const TextStyle h2Text = TextStyle(fontSize: 24, color: mediumGreyTwo);
 const TextStyle h3Text = TextStyle(fontSize: 20, color: mediumGreyTwo);
 const TextStyle h2Green = TextStyle(fontSize: 24, color: green);
 
+const TextStyle bodyWhiteText =
+    TextStyle(fontSize: 16, color: white, fontWeight: FontWeight.w500);
 const TextStyle bodyDarkText =
     TextStyle(fontSize: 16, color: mediumGreyTwo, fontWeight: FontWeight.w500);
 const TextStyle bodyLightText =
@@ -52,27 +59,6 @@ const TextStyle linkText =
 const TextStyle buttonText =
     TextStyle(fontSize: 14, color: white, fontWeight: FontWeight.bold);
 
-// Spaces - General
-const SizedBox vSpace5 = SizedBox(height: 5);
-const SizedBox vSpace10 = SizedBox(height: 10);
-const SizedBox vSpace15 = SizedBox(height: 15);
-const SizedBox vSpace20 = SizedBox(height: 20);
-const SizedBox vSpace30 = SizedBox(height: 30);
-const SizedBox vSpace40 = SizedBox(height: 40);
-const SizedBox vSpace50 = SizedBox(height: 50);
-const SizedBox vSpace60 = SizedBox(height: 60);
-const SizedBox vSpace70 = SizedBox(height: 70);
-
-const SizedBox hSpace5 = SizedBox(width: 5);
-const SizedBox hSpace10 = SizedBox(width: 10);
-const SizedBox hSpace15 = SizedBox(width: 15);
-const SizedBox hSpace20 = SizedBox(width: 20);
-const SizedBox hSpace30 = SizedBox(width: 30);
-const SizedBox hSpace40 = SizedBox(width: 40);
-const SizedBox hSpace50 = SizedBox(width: 50);
-const SizedBox hSpace60 = SizedBox(width: 60);
-const SizedBox hSpace70 = SizedBox(width: 70);
-
 // Generate size
 double generateSize(BuildContext context, double value,
         {bool fromHeight = false}) =>
@@ -82,12 +68,12 @@ double generateSize(BuildContext context, double value,
 
 // Generate Space
 SizedBox generateSpace(BuildContext context, double value,
-    {bool vertical = true, bool fromHeight = false}) {
-  return vertical
+    {bool horizontal = false, bool fromHeight = false}) {
+  return horizontal
       ? SizedBox(
-          height: generateSize(context, value, fromHeight: fromHeight),
+          width: generateSize(context, value, fromHeight: fromHeight),
         )
       : SizedBox(
-          width: generateSize(context, value, fromHeight: fromHeight),
+          height: generateSize(context, value, fromHeight: fromHeight),
         );
 }

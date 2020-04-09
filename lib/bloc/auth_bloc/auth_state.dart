@@ -38,3 +38,17 @@ class AuthFailedState extends AuthState {
   @override
   List<Object> get props => [null];
 }
+
+class AccountCreatingState extends AuthState {
+  const AccountCreatingState();
+
+  @override
+  List<Object> get props => [null];
+}
+
+class AccountCreatedState extends AuthState {
+  const AccountCreatedState();
+
+  @override
+  List<Object> get props => [null];
+}

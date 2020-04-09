@@ -54,64 +54,10 @@ class S {
     );
   }
 
-  String get logout {
+  String get error {
     return Intl.message(
-      'Logout',
-      name: 'logout',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get loginWith {
-    return Intl.message(
-      'Login with',
-      name: 'loginWith',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get touchId {
-    return Intl.message(
-      'Touch ID',
-      name: 'touchId',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get loginWithPassword {
-    return Intl.message(
-      'Login with password',
-      name: 'loginWithPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get loginWithTouchId {
-    return Intl.message(
-      'Login with Touch ID',
-      name: 'loginWithTouchId',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get loginError {
-    return Intl.message(
-      'Login Error',
-      name: 'loginError',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get welcome {
-    return Intl.message(
-      'Welcome',
-      name: 'welcome',
+      'Error',
+      name: 'error',
       desc: '',
       args: [],
     );
@@ -135,55 +81,109 @@ class S {
     );
   }
 
-  String get firstName {
+  String get fullName {
     return Intl.message(
-      'First Name',
-      name: 'firstName',
+      'Full Name',
+      name: 'fullName',
       desc: '',
       args: [],
     );
   }
 
-  String get lastName {
+  String get store {
     return Intl.message(
-      'Last Name',
-      name: 'lastName',
+      'Store',
+      name: 'store',
       desc: '',
       args: [],
     );
   }
 
-  String get updateDetails {
+  String get vegetables {
     return Intl.message(
-      'Update Details',
-      name: 'updateDetails',
+      'Vegetables',
+      name: 'vegetables',
       desc: '',
       args: [],
     );
   }
 
-  String get update {
+  String get browse {
     return Intl.message(
-      'Update',
-      name: 'update',
+      'Browse',
+      name: 'browse',
       desc: '',
       args: [],
     );
   }
 
-  String get updateDataError {
+  String get berries {
     return Intl.message(
-      'Update Data Error',
-      name: 'updateDataError',
+      'Berries',
+      name: 'berries',
       desc: '',
       args: [],
     );
   }
 
-  String get back {
+  String get citrus {
     return Intl.message(
-      'Back',
-      name: 'back',
+      'Citrus',
+      name: 'citrus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get tropical {
+    return Intl.message(
+      'Tropical',
+      name: 'tropical',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get more {
+    return Intl.message(
+      'More',
+      name: 'more',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get recipes {
+    return Intl.message(
+      'Recipes',
+      name: 'recipes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get cart {
+    return Intl.message(
+      'Cart',
+      name: 'cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
       desc: '',
       args: [],
     );

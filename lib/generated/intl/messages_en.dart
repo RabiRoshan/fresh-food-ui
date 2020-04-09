@@ -21,23 +21,23 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "back" : MessageLookupByLibrary.simpleMessage("Back"),
+    "berries" : MessageLookupByLibrary.simpleMessage("Berries"),
+    "browse" : MessageLookupByLibrary.simpleMessage("Browse"),
+    "cart" : MessageLookupByLibrary.simpleMessage("Cart"),
+    "citrus" : MessageLookupByLibrary.simpleMessage("Citrus"),
     "createAccount" : MessageLookupByLibrary.simpleMessage("Create Account"),
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
-    "firstName" : MessageLookupByLibrary.simpleMessage("First Name"),
+    "error" : MessageLookupByLibrary.simpleMessage("Error"),
     "forgotPassword" : MessageLookupByLibrary.simpleMessage("Forgot password?"),
-    "lastName" : MessageLookupByLibrary.simpleMessage("Last Name"),
-    "loginError" : MessageLookupByLibrary.simpleMessage("Login Error"),
-    "loginWith" : MessageLookupByLibrary.simpleMessage("Login with"),
-    "loginWithPassword" : MessageLookupByLibrary.simpleMessage("Login with password"),
-    "loginWithTouchId" : MessageLookupByLibrary.simpleMessage("Login with Touch ID"),
-    "logout" : MessageLookupByLibrary.simpleMessage("Logout"),
+    "fullName" : MessageLookupByLibrary.simpleMessage("Full Name"),
+    "more" : MessageLookupByLibrary.simpleMessage("More"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
+    "recipes" : MessageLookupByLibrary.simpleMessage("Recipes"),
+    "search" : MessageLookupByLibrary.simpleMessage("Search"),
+    "settings" : MessageLookupByLibrary.simpleMessage("Settings"),
     "signIn" : MessageLookupByLibrary.simpleMessage("Sign In"),
-    "touchId" : MessageLookupByLibrary.simpleMessage("Touch ID"),
-    "update" : MessageLookupByLibrary.simpleMessage("Update"),
-    "updateDataError" : MessageLookupByLibrary.simpleMessage("Update Data Error"),
-    "updateDetails" : MessageLookupByLibrary.simpleMessage("Update Details"),
-    "welcome" : MessageLookupByLibrary.simpleMessage("Welcome")
+    "store" : MessageLookupByLibrary.simpleMessage("Store"),
+    "tropical" : MessageLookupByLibrary.simpleMessage("Tropical"),
+    "vegetables" : MessageLookupByLibrary.simpleMessage("Vegetables")
   };
 }

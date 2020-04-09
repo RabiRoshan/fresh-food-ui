@@ -2,25 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-import 'ui/views/enter_user_detail.dart';
-import 'ui/views/home_screen.dart';
-import 'ui/views/login_screen.dart';
+import 'main.dart';
+import 'ui/views/create_account_screen.dart';
+import 'ui/views/main_screen.dart';
+import 'ui/views/search_screen.dart';
+import 'ui/views/sign_in_screen.dart';
 
-const String HomeRoute = '/home';
-const String LoginRoute = '/login';
-const String EnterUserDetailRoute = 'enteruserdetail';
+const String SignInRoute = '/signin';
+const String CreateAccountRoute = '/createaccount';
+const String SearchRoute = '/search';
+const String MainRoute = '/main';
 
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return GetRoute(page: LoginScreen(), settings: settings);
-      case LoginRoute:
-        return GetRoute(settings: settings, page: LoginScreen());
-      case EnterUserDetailRoute:
-        return GetRoute(settings: settings, page: EnterUserDetail());
-      case HomeRoute:
-        return GetRoute(settings: settings, page: HomeScreen());
+        return GetRoute(page: RootWidget(), settings: settings);
+      case SignInRoute:
+        return GetRoute(settings: settings, page: SignInScreen());
+      case CreateAccountRoute:
+        return GetRoute(settings: settings, page: CreateAccountScreen());
+      case SearchRoute:
+        return GetRoute(settings: settings, page: SearchScreen());
+      case MainRoute:
+        return GetRoute(settings: settings, page: MainScreen());
+
       default:
         return GetRoute(
           settings: settings,

@@ -37,20 +37,25 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     yield AuthenticatingState();
 
     try {
-      if (event is AutoLoginEvent) {
+      if (event is AutoSignInEvent) {
         var authToken = await _secureStorageHelper.getAuthToken();
         if (authToken != null)
           yield AuthenticatedState(authToken);
         else
           yield UnauthenticatedState();
-      } else if (event is LoginEvent) {
-        final loginReponse =
-            await userRepo.userLogin(event.email, event.password);
-        await _secureStorageHelper.setAuthToken(loginReponse.token);
-        yield AuthenticatedState(loginReponse.token);
+      } else if (event is SignInEvent) {
+        final signInReponse =
+            await userRepo.signInUser(event.email, event.password);
+        await _secureStorageHelper.setAuthToken(signInReponse.token);
+        yield AuthenticatedState(signInReponse.token);
       } else if (event is LogoutEvent) {
         await _secureStorageHelper.deleteAll();
         yield UnauthenticatedState();
+      } else if (event is AccountCreateEvent) {
+        final signInReponse = await userRepo.createUser(
+            event.fullName, event.email, event.password);
+        await _secureStorageHelper.setAuthToken(signInReponse.token);
+        yield AuthenticatedState(signInReponse.token);
       }
     } on ErrorResponse catch (e) {
       yield AuthFailedState(e);

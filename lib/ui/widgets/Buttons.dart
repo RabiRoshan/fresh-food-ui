@@ -34,7 +34,7 @@ class ButtonOne extends StatelessWidget {
               36,
             ),
           ),
-          child: generateButtonChild(text, prefixIcon),
+          child: generateButtonChild(context, text, prefixIcon),
         ),
       );
     else
@@ -52,20 +52,24 @@ class ButtonOne extends StatelessWidget {
           onPressed: !showLoader ? onPressed : null,
           disabledColor: green,
           color: green,
-          child: generateButtonChild(text, prefixIcon),
+          child: generateButtonChild(context, text, prefixIcon),
         ),
       );
   }
 }
 
-Widget generateButtonChild(String text, ImageIcon prefixIcon) =>
+Widget generateButtonChild(
+  BuildContext context,
+  String text,
+  ImageIcon prefixIcon,
+) =>
     prefixIcon != null
         ? Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 prefixIcon,
-                hSpace10,
+                generateSpace(context, 10, horizontal: true),
                 Text(
                   text,
                   style: buttonText,

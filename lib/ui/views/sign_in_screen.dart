@@ -11,17 +11,18 @@ import '../responsive/orientation_layout.dart';
 import '../responsive/screent_type_layout.dart';
 import '../widgets/Buttons.dart';
 import '../widgets/Cards.dart';
+import '../widgets/Links.dart';
 import '../widgets/TextFields.dart';
 import 'base_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  LoginScreen({Key key}) : super(key: key);
+class SignInScreen extends StatefulWidget {
+  SignInScreen({Key key}) : super(key: key);
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignInScreenState createState() => _SignInScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignInScreenState extends State<SignInScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -30,17 +31,23 @@ class _LoginScreenState extends State<LoginScreen> {
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is AuthFailedState) {
-          Get.snackbar(S.of(context).loginError, state.error.error);
+          Get.snackbar(
+            S.of(context).error,
+            state.error.error,
+            margin: EdgeInsets.all(
+              10,
+            ),
+          );
         } else if (state is AuthenticatedState) {
-          Get.offAllNamed(HomeRoute);
+          Get.offAllNamed(MainRoute);
         }
       },
       builder: (context, state) => ScreenTypeLayout(
         mobile: OrientationLayout(
-          portrait: LoginViewMobilePortrait(
+          portrait: SignInViewMobilePortrait(
             emailController: emailController,
             passwordController: passwordController,
-            onLoginPressed: _login,
+            onSignInPressed: _signIn,
             isLoggingIn: state is AuthenticatingState ?? false,
           ),
         ),
@@ -48,9 +55,9 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  _login() {
+  _signIn() {
     BlocProvider.of<AuthBloc>(context).add(
-      LoginEvent(
+      SignInEvent(
         emailController.text,
         passwordController.text,
       ),
@@ -58,17 +65,17 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-class LoginViewMobilePortrait extends StatelessWidget {
+class SignInViewMobilePortrait extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
-  final Function onLoginPressed;
+  final Function onSignInPressed;
   final isLoggingIn;
 
-  const LoginViewMobilePortrait(
+  const SignInViewMobilePortrait(
       {Key key,
       this.emailController,
       this.passwordController,
-      this.onLoginPressed,
+      this.onSignInPressed,
       this.isLoggingIn = false})
       : super(key: key);
 
@@ -84,8 +91,8 @@ class LoginViewMobilePortrait extends StatelessWidget {
               padding: EdgeInsets.only(
                 top: generateSize(context, 149, fromHeight: true),
                 bottom: generateSize(context, 30, fromHeight: true),
-                left: generateSize(context, 30, fromHeight: true),
-                right: generateSize(context, 30, fromHeight: true),
+                left: generateSize(context, 30),
+                right: generateSize(context, 30),
               ),
               child: Column(
                 children: <Widget>[
@@ -128,7 +135,7 @@ class LoginViewMobilePortrait extends StatelessWidget {
                     ),
                     showLoader: isLoggingIn,
                     onPressed: () {
-                      onLoginPressed();
+                      onSignInPressed();
                     },
                   ),
                 ],
@@ -136,10 +143,10 @@ class LoginViewMobilePortrait extends StatelessWidget {
             ),
           ),
           generateSpace(context, 42, fromHeight: true),
-          Text(
-            S.of(context).createAccount,
-            style: linkText,
-          ),
+          LinkOne(
+            text: S.of(context).createAccount,
+            route: CreateAccountRoute,
+          )
         ],
       ),
     );
