@@ -21,8 +21,8 @@ class SignInEvent extends AuthEvent {
   List<Object> get props => [email, password];
 }
 
-class LogoutEvent extends AuthEvent {
-  const LogoutEvent();
+class SignOutEvent extends AuthEvent {
+  const SignOutEvent();
 
   @override
   List<Object> get props => null;

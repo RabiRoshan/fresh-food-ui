@@ -7,19 +7,19 @@ const BASE_HEIGHT = 812;
 
 // Colors
 const Map<int, Color> color = {
-  50: Color.fromRGBO(123, 237, 141, .1),
-  100: Color.fromRGBO(123, 237, 141, .2),
-  200: Color.fromRGBO(123, 237, 141, .3),
-  300: Color.fromRGBO(123, 237, 141, .4),
-  400: Color.fromRGBO(123, 237, 141, .5),
-  500: Color.fromRGBO(123, 237, 141, .6),
-  600: Color.fromRGBO(123, 237, 141, .7),
-  700: Color.fromRGBO(123, 237, 141, .8),
-  800: Color.fromRGBO(123, 237, 141, .9),
-  900: Color.fromRGBO(123, 237, 141, 1),
+  50: Color.fromRGBO(0, 178, 122, .1),
+  100: Color.fromRGBO(0, 178, 122, .2),
+  200: Color.fromRGBO(0, 178, 122, .3),
+  300: Color.fromRGBO(0, 178, 122, .4),
+  400: Color.fromRGBO(0, 178, 122, .5),
+  500: Color.fromRGBO(0, 178, 122, .6),
+  600: Color.fromRGBO(0, 178, 122, .7),
+  700: Color.fromRGBO(0, 178, 122, .8),
+  800: Color.fromRGBO(0, 178, 122, .9),
+  900: Color.fromRGBO(0, 178, 122, 1),
 };
 
-const MaterialColor appPrimarySwatch = MaterialColor(0XFF7BED8D, color);
+const MaterialColor appPrimarySwatch = MaterialColor(0XFF00b27a, color);
 const appPrimaryColor = appPrimarySwatch;
 
 const white = Colors.white;

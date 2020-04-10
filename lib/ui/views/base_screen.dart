@@ -40,11 +40,11 @@ class BaseScreen extends StatelessWidget {
           body: SingleChildScrollView(
             child: Container(
               padding: padding,
-              constraints: true
-                  ? BoxConstraints(
-                      minHeight: MediaQuery.of(context).size.height,
-                    )
-                  : null,
+              // constraints: fullScreen
+              //     ? BoxConstraints(
+              //         minHeight: MediaQuery.of(context).size.height,
+              //       )
+              //     : null,
               width: double.infinity,
               child: child,
             ),

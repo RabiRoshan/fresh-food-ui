@@ -48,7 +48,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             await userRepo.signInUser(event.email, event.password);
         await _secureStorageHelper.setAuthToken(signInReponse.token);
         yield AuthenticatedState(signInReponse.token);
-      } else if (event is LogoutEvent) {
+      } else if (event is SignOutEvent) {
         await _secureStorageHelper.deleteAll();
         yield UnauthenticatedState();
       } else if (event is AccountCreateEvent) {
